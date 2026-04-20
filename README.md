@@ -15,19 +15,28 @@ A lightweight background utility that automatically captures screenshots at regu
 
 ```
 screen/
+├── docs/                      # Project wiki and documentation
 ├── src/
 │   ├── config.py              # Configuration settings
 │   ├── screenshot_manager.py  # Screenshot capture logic
 │   └── tray_manager.py        # System tray interface
 ├── main.py                    # Application entry point
+├── main.spec                  # PyInstaller spec
 ├── requirements.txt           # Python dependencies
 ├── screenshots/               # Output directory for captured images
 └── README.md                  # This file
 ```
 
-## Requirements
+## Wiki
 
-- Python 3.7+
+For detailed project documentation, see the wiki pages in `docs/`:
+
+- `docs/Home.md`
+- `docs/Getting-Started.md`
+- `docs/Features.md`
+- `docs/Architecture.md`
+- `docs/Troubleshooting.md`
+- `docs/Release-Notes.md`
 - Windows OS (for system tray support)
 - PIL/Pillow (for screenshot capture)
 - pystray (for system tray icon)
