@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Release Notes | Screenshot Capture Utility</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Release Notes</h1>
+            <p>Track the version history and updates for Screenshot Capture Utility.</p>
+        </header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="Getting-Started.html">Getting Started</a>
+            <a href="Features.html">Features</a>
+            <a href="Architecture.html">Architecture</a>
+            <a href="Troubleshooting.html">Troubleshooting</a>
+        </nav>
+        <main>
+            <section>
+                <h2>v1.0.0</h2>
+                <ul>
+                    <li>Initial release of Screenshot Capture Utility</li>
+                    <li>Added system tray controls for start/stop and interval selection</li>
+                    <li>Implemented automatic screenshot capture with timestamped filenames</li>
+                    <li>Added persistent interval configuration using <code>config.json</code></li>
+                    <li>Added logging support via <code>app.log</code></li>
+                    <li>Built executable support via PyInstaller</li>
+                </ul>
+            </section>
+            <section>
+                <h2>v1.0.1</h2>
+                <ul>
+                    <li>Fixed tray menu startup issue caused by missing <code>ScreenshotManager.get_status()</code></li>
+                    <li>Added event logging and improved diagnostics</li>
+                    <li>Added custom interval dialog styling and centering</li>
+                    <li>Improved tray dialog thread handling to avoid crashes</li>
+                </ul>
+            </section>
+        </main>
+        <footer>
+            <p>Screenshot Capture Utility documentation</p>
+        </footer>
+    </div>
+</body>
+</html>

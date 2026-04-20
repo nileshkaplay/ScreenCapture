@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troubleshooting | Screenshot Capture Utility</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Troubleshooting</h1>
+            <p>Find solutions to common issues and learn how to inspect logs for problems.</p>
+        </header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="Getting-Started.html">Getting Started</a>
+            <a href="Features.html">Features</a>
+            <a href="Architecture.html">Architecture</a>
+            <a href="Release-Notes.html">Release Notes</a>
+        </nav>
+        <main>
+            <section>
+                <h2>Common Issues</h2>
+                <h3>Tray icon does not appear</h3>
+                <ul>
+                    <li>Ensure <code>pystray</code> is installed.</li>
+                    <li>Confirm you are running on Windows.</li>
+                    <li>Check <code>app.log</code> for startup errors.</li>
+                </ul>
+                <h3>Screenshots are not saved</h3>
+                <ul>
+                    <li>Confirm the <code>screenshots/</code> folder exists.</li>
+                    <li>Verify write permissions in the project directory.</li>
+                    <li>Check <code>app.log</code> for errors from <code>ScreenshotManager</code>.</li>
+                </ul>
+                <h3>Custom dialog crashes or fails to open</h3>
+                <ul>
+                    <li>The dialog runs in a dedicated thread to avoid pystray conflicts.</li>
+                    <li>If a crash occurs, inspect <code>app.log</code> for exception details.</li>
+                    <li>Ensure <code>tkinter</code> is available in your Python installation.</li>
+                </ul>
+                <h3>Interval changes do not apply</h3>
+                <ul>
+                    <li>Custom values are saved to <code>config.json</code>.</li>
+                    <li>The tray menu refreshes after interval changes.</li>
+                    <li>If the interval is invalid, an error message is shown.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Log File</h2>
+                <ul>
+                    <li>Application logs are written to <code>app.log</code>.</li>
+                    <li>Look for timestamps, log levels, and exception traces.</li>
+                    <li>Key logged events:</li>
+                    <ul>
+                        <li>App startup and shutdown</li>
+                        <li>Tray actions</li>
+                        <li>Interval changes</li>
+                        <li>Screenshot capture errors</li>
+                    </ul>
+                </ul>
+            </section>
+            <section>
+                <h2>Debugging Steps</h2>
+                <ol>
+                    <li>Run the app from a terminal:
+                        <pre><code>python main.py</code></pre>
+                    </li>
+                    <li>Confirm the tray icon appears.</li>
+                    <li>Open <code>app.log</code> for any error messages.</li>
+                    <li>Verify <code>config.json</code> contains the configured interval.</li>
+                    <li>If needed, rebuild using PyInstaller:
+                        <pre><code>.venv\Scripts\pyinstaller main.spec</code></pre>
+                    </li>
+                </ol>
+            </section>
+        </main>
+        <footer>
+            <p>Screenshot Capture Utility documentation</p>
+        </footer>
+    </div>
+</body>
+</html>

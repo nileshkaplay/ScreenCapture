@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started | Screenshot Capture Utility</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Getting Started</h1>
+            <p>Learn how to install, run, and configure Screenshot Capture Utility.</p>
+        </header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="Features.html">Features</a>
+            <a href="Architecture.html">Architecture</a>
+            <a href="Troubleshooting.html">Troubleshooting</a>
+            <a href="Release-Notes.html">Release Notes</a>
+        </nav>
+        <main>
+            <section>
+                <h2>Overview</h2>
+                <p>Screenshot Capture Utility is a lightweight desktop utility that runs in the background and automatically captures screenshots at configurable intervals. It is controlled through a system tray icon and saves all screenshots to a local folder.</p>
+            </section>
+            <section>
+                <h2>Requirements</h2>
+                <ul>
+                    <li>Python 3.7+</li>
+                    <li>Windows OS (primary target)</li>
+                    <li><code>pillow</code></li>
+                    <li><code>pystray</code></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Installation</h2>
+                <ol>
+                    <li>Clone or download the repository.</li>
+                    <li>Create and activate a Python virtual environment.</li>
+                    <li>Install dependencies:</li>
+                </ol>
+                <pre><code>pip install -r requirements.txt</code></pre>
+            </section>
+            <section>
+                <h2>Running the App</h2>
+                <p>Run the application with:</p>
+                <pre><code>python main.py</code></pre>
+                <p>The app will launch a tray icon and stay running in the background.</p>
+            </section>
+            <section>
+                <h2>Configuration</h2>
+                <ul>
+                    <li><code>src/config.py</code> contains default settings.</li>
+                    <li><code>config.json</code> stores the saved interval.</li>
+                    <li>Screenshots are saved in the <code>screenshots/</code> directory.</li>
+                </ul>
+            </section>
+        </main>
+        <footer>
+            <p>Screenshot Capture Utility documentation</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture | Screenshot Capture Utility</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Architecture</h1>
+            <p>Understand the project structure, components, and runtime flow behind Screenshot Capture Utility.</p>
+        </header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="Getting-Started.html">Getting Started</a>
+            <a href="Features.html">Features</a>
+            <a href="Troubleshooting.html">Troubleshooting</a>
+            <a href="Release-Notes.html">Release Notes</a>
+        </nav>
+        <main>
+            <section>
+                <h2>Project Structure</h2>
+                <pre><code>screen/
+├── src/
+│   ├── config.py              # Configuration and file paths
+│   ├── logger.py              # Logging configuration
+│   ├── screenshot_manager.py  # Screenshot capture engine
+│   └── tray_manager.py        # System tray UI and dialog logic
+├── main.py                    # Application launcher
+├── main.spec                  # PyInstaller build spec
+├── requirements.txt           # Dependencies
+├── screenshots/               # Saved screenshots
+└── docs/                      # Wiki documentation</code></pre>
+            </section>
+            <section>
+                <h2>Component Overview</h2>
+                <ul>
+                    <li><strong><code>main.py</code></strong>
+                        <ul>
+                            <li>Initializes logging</li>
+                            <li>Creates <code>ScreenshotManager</code></li>
+                            <li>Creates and starts <code>TrayManager</code></li>
+                            <li>Keeps the process alive while the tray icon is active</li>
+                        </ul>
+                    </li>
+                    <li><strong><code>src/config.py</code></strong>
+                        <ul>
+                            <li>Calculates <code>BASE_DIR</code> for script vs executable usage</li>
+                            <li>Defines screenshot settings and storage paths</li>
+                            <li>Loads and saves interval settings from <code>config.json</code></li>
+                        </ul>
+                    </li>
+                    <li><strong><code>src/logger.py</code></strong>
+                        <ul>
+                            <li>Configures a rotating log to <code>app.log</code></li>
+                            <li>Uses <code>logging</code> with timestamps and log levels</li>
+                            <li>Limits file size to 5 MB with backups</li>
+                        </ul>
+                    </li>
+                    <li><strong><code>src/screenshot_manager.py</code></strong>
+                        <ul>
+                            <li>Manages background screenshot capture in a daemon thread</li>
+                            <li>Handles start/stop and interval updates</li>
+                            <li>Saves screenshots using Pillow</li>
+                            <li>Provides status metadata for tray display</li>
+                        </ul>
+                    </li>
+                    <li><strong><code>src/tray_manager.py</code></strong>
+                        <ul>
+                            <li>Builds the system tray icon and menu using pystray</li>
+                            <li>Handles tray actions: start, stop, open folder, change interval</li>
+                            <li>Displays a custom dialog for interval input</li>
+                            <li>Logs tray events and errors</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Runtime Flow</h2>
+                <ol>
+                    <li><code>main.py</code> starts and initializes <code>ScreenshotManager</code></li>
+                    <li><code>TrayManager</code> creates a tray icon and menu</li>
+                    <li>The app runs in the background while <code>tray_manager.app_running</code> is <code>True</code></li>
+                    <li>User actions from the tray invoke screenshot management or configuration changes</li>
+                    <li><code>app.log</code> captures events and exception traces</li>
+                </ol>
+            </section>
+            <section>
+                <h2>Threading Model</h2>
+                <ul>
+                    <li><code>ScreenshotManager</code> runs screenshot capture in a separate daemon thread</li>
+                    <li>The custom interval dialog is launched in its own thread to avoid conflicts with pystray</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Build Process</h2>
+                <ul>
+                    <li>Uses <code>PyInstaller</code> and <code>main.spec</code></li>
+                    <li>Produces a single executable: <code>dist/ScreenshotCapture.exe</code></li>
+                    <li>Includes source dependencies and runtime hooks for Tkinter and pystray</li>
+                </ul>
+            </section>
+        </main>
+        <footer>
+            <p>Screenshot Capture Utility documentation</p>
+        </footer>
+    </div>
+</body>
+</html>
