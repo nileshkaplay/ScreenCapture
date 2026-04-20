@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screenshot Capture Utility - Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        main {
+            padding: 40px 20px;
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-left: 4px solid #667eea;
+            padding-left: 15px;
+        }
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .doc-card {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+        .doc-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+            transform: translateY(-5px);
+        }
+        .doc-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        .doc-card p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+        .quick-links {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        .quick-links h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        .quick-links ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .quick-links li {
+            margin-bottom: 8px;
+        }
+        .quick-links a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .quick-links a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+            padding: 20px;
+            text-align: center;
+            color: #999;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📸 Screenshot Capture Utility</h1>
+            <p>Automated background screenshot capture with system tray control</p>
+        </header>
+        
+        <main>
+            <section>
+                <h2>Welcome</h2>
+                <p>Screenshot Capture Utility is a lightweight, background automation tool that captures screenshots at configurable intervals. Control it easily from your system tray without interrupting your workflow.</p>
+            </section>
+
+            <section>
+                <h2>Documentation</h2>
+                <div class="doc-grid">
+                    <a href="Getting-Started.md" class="doc-card">
+                        <h3>🚀 Getting Started</h3>
+                        <p>Installation, requirements, and how to run the application for the first time.</p>
+                    </a>
+                    <a href="Features.md" class="doc-card">
+                        <h3>✨ Features</h3>
+                        <p>Overview of all features including capture, tray control, and configuration options.</p>
+                    </a>
+                    <a href="Architecture.md" class="doc-card">
+                        <h3>🏗️ Architecture</h3>
+                        <p>Project structure, component design, threading model, and build process details.</p>
+                    </a>
+                    <a href="Troubleshooting.md" class="doc-card">
+                        <h3>🔧 Troubleshooting</h3>
+                        <p>Common issues, debugging steps, and how to check logs for error details.</p>
+                    </a>
+                    <a href="Release-Notes.md" class="doc-card">
+                        <h3>📝 Release Notes</h3>
+                        <p>Version history, release information, and changelog.</p>
+                    </a>
+                </div>
+            </section>
+
+            <section>
+                <h2>Quick Start</h2>
+                <div class="quick-links">
+                    <h3>Setup in 3 Steps</h3>
+                    <ul>
+                        <li><strong>1. Install dependencies:</strong> <code>pip install -r requirements.txt</code></li>
+                        <li><strong>2. Run the app:</strong> <code>python main.py</code></li>
+                        <li><strong>3. Control from tray:</strong> Right-click the tray icon to start/stop capture</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>Key Features</h2>
+                <ul style="margin-left: 20px; line-height: 2;">
+                    <li>⏱️ Automatic screenshot capture at configurable intervals</li>
+                    <li>🖼️ Timestamped PNG files organized by capture session</li>
+                    <li>⚙️ Preset (5s, 10s, 30s, 60s) and custom interval support</li>
+                    <li>📊 Screenshot count display in tray menu</li>
+                    <li>📂 Direct access to screenshots folder from tray</li>
+                    <li>🔍 Comprehensive logging for diagnostics</li>
+                    <li>🎨 Modern, user-friendly custom interval dialog</li>
+                </ul>
+            </section>
+
+            <section>
+                <div class="quick-links">
+                    <h3>📦 System Requirements</h3>
+                    <ul>
+                        <li>Python 3.7+</li>
+                        <li>Windows OS (primary target)</li>
+                        <li>pillow (image processing)</li>
+                        <li>pystray (system tray integration)</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Screenshot Capture Utility v1.0 | <a href="https://github.com" style="color: #667eea; text-decoration: none;">GitHub</a> | MIT License</p>
+        </footer>
+    </div>
+</body>
+</html>
